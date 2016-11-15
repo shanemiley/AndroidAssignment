@@ -23,7 +23,7 @@
         android:layout_weight="1"/>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/workoutId"
         android:background="#444444"
         android:onClick="showAddWorkout"
         android:text="ADD"

@@ -7,7 +7,7 @@ package com.example.shane.workoutrecorder20;
         import android.view.View;
         import android.widget.EditText;
 
-public class EditContact extends Activity{
+public class EditWorkout extends Activity{
 
     EditText Name;
     EditText Exercise1;
@@ -22,10 +22,10 @@ public class EditContact extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_workout);
         Name = (EditText) findViewById(R.id.Name);
-        Exercise1 = (EditText) findViewById(R.id.Exercise1);
-        Exercise2 = (EditText) findViewById(R.id.Exercise2);
-        Exercise3 = (EditText) findViewById(R.id.Exercise3);
-        Exercise4 = (EditText) findViewById(R.id.Exercise4);
+        Exercise1 = (EditText) findViewById(R.id.exercise1);
+        Exercise2 = (EditText) findViewById(R.id.exercise2);
+        Exercise3 = (EditText) findViewById(R.id.exercise3);
+        Exercise4 = (EditText) findViewById(R.id.exercise4);
 
         Intent theIntent = getIntent();
 
@@ -35,11 +35,11 @@ public class EditContact extends Activity{
 
         if(workoutList.size() != 0){
 
-            Name.setText(contactList.get("Name"));
-            Exercise1.setText(contactList.get("Exercise1"));
-            Exercise2.setText(contactList.get("Exercise2"));
-            Exercise3.setText(contactList.get("Exercise3"));
-            Exercise4.setText(contactList.get("Exercise4"));
+            Name.setText(workoutList.get("Name"));
+            Exercise1.setText(workoutList.get("Exercise1"));
+            Exercise2.setText(workoutList.get("Exercise2"));
+            Exercise3.setText(workoutList.get("Exercise3"));
+            Exercise4.setText(workoutList.get("Exercise4"));
 
         }
     }
@@ -48,10 +48,10 @@ public class EditContact extends Activity{
 
         HashMap<String, String> queryValuesMap = new HashMap<String, String>();
         Name = (EditText) findViewById(R.id.Name);
-        Exercise1 = (EditText) findViewById(R.id.Exercise1);
-        Exercise3 = (EditText) findViewById(R.id.Exercise2);
-        Exercise3 = (EditText) findViewById(R.id.Exercise3);
-        Exercise4 = (EditText) findViewById(R.id.Exercise4);
+        Exercise1 = (EditText) findViewById(R.id.exercise1);
+        Exercise3 = (EditText) findViewById(R.id.exercise2);
+        Exercise3 = (EditText) findViewById(R.id.exercise3);
+        Exercise4 = (EditText) findViewById(R.id.exercise4);
 
         Intent theIntent = getIntent();
 
@@ -70,7 +70,7 @@ public class EditContact extends Activity{
 
     public void removeWorkout(View view){
         Intent theIntent = getIntent();
-        String workoutIdtId = theIntent.getStringExtra("workoutId");
+        String workoutId = theIntent.getStringExtra("workoutId");
         dbTools.deleteWorkout(workoutId);
         this.callMainActivity(view);
     }
